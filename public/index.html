@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-resource/dist/vue-resource.js"></script>
+    <link rel="stylesheet" href="../node_modules/material-design-lite/material.min.css">
+    <script src="../node_modules/material-design-lite/material.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <style>
+      #list {
+        margin: 10px;
+        width: 0px;
+      }
+      .percard {
+        margin-top: 20px;
+      }
+    </style>
+
+    <div id="list">
+      <div class="mdl-card mdl-shadow--4dp percard" v-for="file in fileList">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">{{ file }}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          This text might describe the photo and provide further information, such as where and
+          when it was taken.
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="../uploads/{{ file }}">Download</a>
+        </div>
+      </div>
+    </div>
+    <script src="public/app.js"></script>
+  </body>
+</html>
