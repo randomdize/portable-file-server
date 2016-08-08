@@ -1,36 +1,47 @@
 <html>
   <head>
+    <!-- Vue.js -->
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/vue-resource/dist/vue-resource.js"></script>
+    <!-- MDL -->
     <link rel="stylesheet" href="../node_modules/material-design-lite/material.min.css">
-    <script src="../node_modules/material-design-lite/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="../node_modules/material-design-lite/material.min.js"></script>
+    <!-- VUE-MDL -->
+    <script src="../node_modules/vue-mdl/dist/vue-mdl.min.js"></script>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="public/css/app.css">
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <style>
-      #list {
-        margin: 10px;
-        width: 0px;
-      }
-      .percard {
-        margin-top: 20px;
-      }
-    </style>
-
-    <div id="list">
-      <div class="mdl-card mdl-shadow--4dp percard" v-for="file in fileList">
-        <div class="mdl-card__title">
-          <h2 class="mdl-card__title-text">{{ file }}</h2>
+    <!-- Container -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--no-drawer-button">
+      <!-- Header -->
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Title</span>
         </div>
-        <div class="mdl-card__supporting-text">
-          This text might describe the photo and provide further information, such as where and
-          when it was taken.
+      </header>
+      <!-- body -->
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <div id="list">
+            <div class="mdl-card mdl-shadow--4dp percard" v-for="file in fileList">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">{{ file }}</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <mdl-anchor-button colored v-mdl-ripple-effect href="../uploads/{{ file }}">Download</mdl-anchor-button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="mdl-card__actions mdl-card--border">
-          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="../uploads/{{ file }}">Download</a>
-        </div>
-      </div>
+      </main>
     </div>
-    <script src="public/app.js"></script>
+    <!-- JS -->
+    <script src="public/js/bundle.js"></script>
   </body>
 </html>
