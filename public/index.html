@@ -27,11 +27,12 @@
       <main class="mdl-layout__content">
         <div class="page-content">
           <div id="list">
-            <div class="mdl-card mdl-shadow--4dp percard" v-for="file in fileList">
+            <div class="mdl-card mdl-shadow--4dp percard" v-for="file in fileList" transition="insert">
               <div class="mdl-card__title">
                 <h2 class="mdl-card__title-text">{{ file }}</h2>
               </div>
               <div class="mdl-card__supporting-text">
+                <p> TEST </p>
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <mdl-anchor-button colored v-mdl-ripple-effect href="../uploads/{{ file }}">Download</mdl-anchor-button>

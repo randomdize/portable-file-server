@@ -5,3 +5,15 @@
 .percard {
   margin-top: 20px;
 }
+
+/* Vue animation */
+.insert-transition {
+  transition: all .5s ease;
+  overflow: hidden;
+}
+
+.insert-enter, .insert-leave {
+  height: 0;
+  margin: 50px auto;
+  opacity: 0;
+}
