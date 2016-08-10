@@ -20,7 +20,7 @@
       <!-- Header -->
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Title</span>
+          <span class="mdl-layout-title">Portable file Server</span>
         </div>
       </header>
       <!-- body -->
@@ -29,10 +29,13 @@
           <div id="list">
             <div class="mdl-card mdl-shadow--4dp percard" v-for="file in fileList" transition="insert">
               <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">{{ file }}</h2>
+                <h2 class="mdl-card__title-text">{{ file.name }}</h2>
               </div>
               <div class="mdl-card__supporting-text">
-                <p> TEST </p>
+                <p v-if="file.size > 1000">檔案大小：{{ Math.round(file.size / 1000) }} KBytes</p>
+                <p v-else>檔案大小：{{ file.size }} Bytes</p>
+                <p>最後修改日期：{{ file.mtime.replace('T',' ').replace('Z',' ') }}</p>
+
               </div>
               <div class="mdl-card__actions mdl-card--border">
                 <mdl-anchor-button colored v-mdl-ripple-effect href="../uploads/{{ file }}">Download</mdl-anchor-button>

@@ -8,7 +8,15 @@ const app = new koa();
 var store = {
   listFile: (ctx) => {
     var dir = fs.readdirSync('uploads');
-    ctx.body = dir;
+    var fileArray = [];
+    for(var i = 0;i<dir.length;i++) {
+      if(dir[i][0] != '.'){
+        fileArray.push(fs.lstatSync('uploads/' + dir[i]));
+        fileArray[fileArray.length - 1].name = dir[i];
+      }
+    }
+    console.log(fileArray);
+    ctx.body = fileArray;
   }
 };
 
